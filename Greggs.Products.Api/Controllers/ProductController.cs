@@ -24,13 +24,12 @@ public class ProductController : ControllerBase
     /// <summary>
     /// Gets a list of products
     /// </summary>
-    /// <param name="pageStart">The zero-based start index</param>
-    /// <param name="pageSize">The number of items to return</param>
+    /// <param name="query">The query parameters</param>
     /// <returns></returns>
     [HttpGet]
-    public IEnumerable<Product> Get(int pageStart = 0, int pageSize = 5)
+    public IEnumerable<Product> Get([FromQuery] ListQuery query)
     {
-        IEnumerable<Product> products = _products.List(pageStart, pageSize);
+        IEnumerable<Product> products = _products.List(query.PageStart, query.PageSize);
 
         return products;
     }
