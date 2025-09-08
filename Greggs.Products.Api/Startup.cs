@@ -1,3 +1,4 @@
+using Greggs.Products.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,8 @@ public class Startup
         services.AddControllers();
 
         services.AddSwaggerGen();
+
+        services.AddProducts();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
