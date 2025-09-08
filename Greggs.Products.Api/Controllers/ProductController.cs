@@ -21,6 +21,12 @@ public class ProductController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Gets a list of products
+    /// </summary>
+    /// <param name="pageStart">The zero-based start index</param>
+    /// <param name="pageSize">The number of items to return</param>
+    /// <returns></returns>
     [HttpGet]
     public IEnumerable<Product> Get(int pageStart = 0, int pageSize = 5)
     {
