@@ -1,6 +1,6 @@
-﻿using Greggs.Products.Api.Frameworks.CurrencyConversion.Abstractions;
+﻿using Greggs.Products.CurrencyConversion.Abstractions;
 
-namespace Greggs.Products.Api.Frameworks.CurrencyConversion.Converters;
+namespace Greggs.Products.CurrencyConversion.Converters;
 
 public class DefaultCurrencyConverter : CurrencyConverter, ICurrencyConverter
 {

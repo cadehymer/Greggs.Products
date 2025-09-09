@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Greggs.Products.UnitTests.Helpers;
 
-internal sealed class ValidationHelper
+internal static class ValidationHelper
 {
     public static IList<ValidationResult> ValidateModel(object model)
     {

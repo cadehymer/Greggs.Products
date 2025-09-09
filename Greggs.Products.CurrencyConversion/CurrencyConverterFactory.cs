@@ -1,10 +1,9 @@
-﻿using Greggs.Products.Api.Frameworks.CurrencyConversion.Abstractions;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Configuration;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Converters;
+﻿using Greggs.Products.CurrencyConversion.Abstractions;
+using Greggs.Products.CurrencyConversion.Configuration;
+using Greggs.Products.CurrencyConversion.Converters;
 using Microsoft.Extensions.Options;
-using System;
 
-namespace Greggs.Products.Api.Frameworks.CurrencyConversion;
+namespace Greggs.Products.CurrencyConversion;
 
 public class CurrencyConverterFactory : ICurrencyConverterFactory
 {

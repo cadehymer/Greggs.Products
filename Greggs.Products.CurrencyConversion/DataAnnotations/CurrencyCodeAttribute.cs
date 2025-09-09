@@ -1,15 +1,14 @@
-﻿using Greggs.Products.Api.Frameworks.CurrencyConversion.Configuration;
+﻿using Greggs.Products.CurrencyConversion.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Greggs.Products.Api.Frameworks.CurrencyConversion.Mvc;
+namespace Greggs.Products.CurrencyConversion.DataAnnotations;
 
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
 public sealed class CurrencyCodeAttribute : ValidationAttribute
 {
-    protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+    protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
     {
         if (value == null)
         {
@@ -24,7 +23,7 @@ public sealed class CurrencyCodeAttribute : ValidationAttribute
             !options.ExchangeRates.ContainsKey(code.ToUpper())))
         {
             return new(ErrorMessage ?? $"{validationContext.DisplayName} is not valid",
-                new string[] { validationContext.MemberName });
+                new string[] { validationContext.MemberName! });
         }
 
         return ValidationResult.Success;

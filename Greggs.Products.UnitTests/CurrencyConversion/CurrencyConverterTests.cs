@@ -1,9 +1,9 @@
 using FluentAssertions;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Converters;
+using Greggs.Products.CurrencyConversion.Converters;
 using System;
 using Xunit;
 
-namespace Greggs.Products.UnitTests;
+namespace Greggs.Products.UnitTests.CurrencyConversion;
 
 public class CurrencyConverterTests
 {

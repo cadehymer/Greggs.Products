@@ -1,18 +1,19 @@
 using Greggs.Products.Api.Controllers;
 using Greggs.Products.Api.DataAccess;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Abstractions;
 using Greggs.Products.Api.Models;
+using Greggs.Products.CurrencyConversion.Abstractions;
 using Microsoft.Extensions.Logging;
 using Moq;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Product = Greggs.Products.Api.DataAccess.Product;
 
-namespace Greggs.Products.UnitTests;
+namespace Greggs.Products.UnitTests.Api;
 
 public class ProductControllerTests
 {
-    private readonly Mock<IDataAccess<Api.DataAccess.Product>> _products = new();
+    private readonly Mock<IDataAccess<Product>> _products = new();
     private readonly Mock<ICurrencyConverterFactory> _currencyConverterFactory = new();
     private readonly Mock<ILogger<ProductController>> _logger = new();
     private readonly ProductController _controller;
@@ -58,7 +59,7 @@ public class ProductControllerTests
         {
             CurrencyCode = currencyCode,
         };
-        List<Api.DataAccess.Product> products = new()
+        List<Product> products = new()
         {
             new() { Name = "Alpha", PriceInPounds = 1.1m },
             new() { Name = "Beta", PriceInPounds = 2.2m },

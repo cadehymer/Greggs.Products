@@ -1,4 +1,4 @@
-﻿namespace Greggs.Products.Api.Frameworks.CurrencyConversion.Abstractions;
+﻿namespace Greggs.Products.CurrencyConversion.Abstractions;
 
 public interface ICurrencyConverterFactory
 {

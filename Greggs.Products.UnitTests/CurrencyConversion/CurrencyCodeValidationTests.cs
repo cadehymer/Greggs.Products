@@ -1,6 +1,6 @@
 using FluentAssertions;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Configuration;
 using Greggs.Products.Api.Models;
+using Greggs.Products.CurrencyConversion.Configuration;
 using Microsoft.Extensions.Options;
 using Moq;
 using System;
@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Xunit;
 
-namespace Greggs.Products.UnitTests;
+namespace Greggs.Products.UnitTests.CurrencyConversion;
 
 public class CurrencyCodeValidationTests
 {

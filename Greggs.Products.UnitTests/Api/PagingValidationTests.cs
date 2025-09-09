@@ -4,7 +4,7 @@ using Greggs.Products.UnitTests.Helpers;
 using System.Linq;
 using Xunit;
 
-namespace Greggs.Products.UnitTests;
+namespace Greggs.Products.UnitTests.Api;
 
 public class PagingValidationTests
 {

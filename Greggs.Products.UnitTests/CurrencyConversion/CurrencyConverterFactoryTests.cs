@@ -1,13 +1,13 @@
 using FluentAssertions;
-using Greggs.Products.Api.Frameworks.CurrencyConversion;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Abstractions;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Configuration;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Converters;
+using Greggs.Products.CurrencyConversion;
+using Greggs.Products.CurrencyConversion.Abstractions;
+using Greggs.Products.CurrencyConversion.Configuration;
+using Greggs.Products.CurrencyConversion.Converters;
 using Microsoft.Extensions.Options;
 using System;
 using Xunit;
 
-namespace Greggs.Products.UnitTests;
+namespace Greggs.Products.UnitTests.CurrencyConversion;
 
 public class CurrencyConverterFactoryTests
 {

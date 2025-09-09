@@ -1,6 +1,6 @@
 ﻿using Greggs.Products.Api.DataAccess;
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Abstractions;
 using Greggs.Products.Api.Models;
+using Greggs.Products.CurrencyConversion.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;

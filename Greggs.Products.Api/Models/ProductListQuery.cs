@@ -1,4 +1,4 @@
-using Greggs.Products.Api.Frameworks.CurrencyConversion.Mvc;
+using Greggs.Products.CurrencyConversion.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Greggs.Products.Api.Models;

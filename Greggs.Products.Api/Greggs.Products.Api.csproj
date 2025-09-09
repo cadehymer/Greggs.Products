@@ -9,6 +9,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Greggs.Products.CurrencyConversion\Greggs.Products.CurrencyConversion.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!-- suppress missing docs warning -->

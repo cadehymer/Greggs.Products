@@ -1,4 +1,5 @@
 using Greggs.Products.Api.Extensions;
+using Greggs.Products.CurrencyConversion.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -30,7 +31,8 @@ public class Startup
             setup.IncludeXmlComments(xmlPath);
         });
 
-        services.AddProducts(_configuration);
+        services.AddProducts();
+        services.AddCurrencyConversion(_configuration);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
