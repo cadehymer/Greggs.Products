@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Greggs.Products.UnitTests;
 
-public class ValidationTests
+public class PagingValidationTests
 {
     private const int PageStart_Default = 0;
     private const int PageStart_Min = 0;

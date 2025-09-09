@@ -6,7 +6,7 @@ namespace Greggs.Products.Api.Models;
 /// <summary>
 /// Represents a request for a list by start index and page size.
 /// </summary>
-public sealed class ListQuery
+public class ListQuery
 {
     /// <summary>
     /// The zero-based start index.
