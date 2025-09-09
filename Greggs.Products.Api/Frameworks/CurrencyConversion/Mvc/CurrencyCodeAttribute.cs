@@ -1,9 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Greggs.Products.Api.Frameworks.CurrencyConversion.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Greggs.Products.Api.Frameworks.CurrencyConversion;
+namespace Greggs.Products.Api.Frameworks.CurrencyConversion.Mvc;
 
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false)]
 public sealed class CurrencyCodeAttribute : ValidationAttribute
@@ -18,9 +19,9 @@ public sealed class CurrencyCodeAttribute : ValidationAttribute
         var options = validationContext.GetRequiredService<IOptions<CurrencyConverterOptions>>().Value;
 
         if (value is not string code ||
-            (!code.Equals(options.DefaultCurrency, StringComparison.InvariantCultureIgnoreCase) &&
+            !code.Equals(options.DefaultCurrency, StringComparison.InvariantCultureIgnoreCase) &&
             (options.ExchangeRates == null ||
-            !options.ExchangeRates.ContainsKey(code.ToUpper()))))
+            !options.ExchangeRates.ContainsKey(code.ToUpper())))
         {
             return new(ErrorMessage ?? $"{validationContext.DisplayName} is not valid",
                 new string[] { validationContext.MemberName });

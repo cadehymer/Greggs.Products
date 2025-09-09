@@ -1,6 +1,5 @@
 ﻿using Greggs.Products.Api.DataAccess;
-using Greggs.Products.Api.Extensions;
-using Greggs.Products.Api.Frameworks.CurrencyConversion;
+using Greggs.Products.Api.Frameworks.CurrencyConversion.Abstractions;
 using Greggs.Products.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -15,16 +14,16 @@ namespace Greggs.Products.Api.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly IDataAccess<DataAccess.Product> _products;
-    private readonly ICurrencyConverter _currencyConverter;
+    private readonly ICurrencyConverterFactory _currencyConverterFactory;
     private readonly ILogger<ProductController> _logger;
 
     public ProductController(
         IDataAccess<DataAccess.Product> products,
-        ICurrencyConverter currencyConverter,
+        ICurrencyConverterFactory currencyConverterFactory,
         ILogger<ProductController> logger)
     {
         _products = products;
-        _currencyConverter = currencyConverter;
+        _currencyConverterFactory = currencyConverterFactory;
         _logger = logger;
     }
 
@@ -41,7 +40,9 @@ public class ProductController : ControllerBase
 
         IEnumerable<DataAccess.Product> products = _products.List(query.PageStart, query.PageSize);
 
-        string currencyCode = query.CurrencyCode.IfNullOrEmpty(() => _currencyConverter.GetDefaultCurrencyCode()).ToUpper();
+        ICurrencyConverter converter = string.IsNullOrEmpty(query.CurrencyCode)
+            ? _currencyConverterFactory.CreateDefault()
+            : _currencyConverterFactory.Create(query.CurrencyCode.ToUpper());
 
         return products
             .Select(x => new Product
@@ -49,8 +50,7 @@ public class ProductController : ControllerBase
                 Name = x.Name,
                 Price = new Dictionary<string, decimal>
                 {
-                    // TODO: Potentially add support for multiple currencies
-                    { currencyCode, _currencyConverter.Convert(x.PriceInPounds, currencyCode) },
+                    { converter.CurrencyCode, converter.Convert(x.PriceInPounds) },
                 },
             });
     }

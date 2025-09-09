@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-namespace Greggs.Products.Api.Frameworks.CurrencyConversion;
+namespace Greggs.Products.Api.Frameworks.CurrencyConversion.Configuration;
 
 public sealed class CurrencyConverterOptions
 {

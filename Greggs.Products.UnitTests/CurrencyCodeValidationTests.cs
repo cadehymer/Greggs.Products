@@ -1,5 +1,5 @@
 using FluentAssertions;
-using Greggs.Products.Api.Frameworks.CurrencyConversion;
+using Greggs.Products.Api.Frameworks.CurrencyConversion.Configuration;
 using Greggs.Products.Api.Models;
 using Microsoft.Extensions.Options;
 using Moq;
@@ -11,12 +11,12 @@ using Xunit;
 
 namespace Greggs.Products.UnitTests;
 
-public class CurrencyCodeValidatorTests
+public class CurrencyCodeValidationTests
 {
     private readonly Mock<IServiceProvider> _serviceProvider = new();
     private readonly CurrencyConverterOptions _options = new();
 
-    public CurrencyCodeValidatorTests()
+    public CurrencyCodeValidationTests()
     {
         _options.DefaultCurrency = null;
         _options.ExchangeRates = null;
